@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="card">
+        <input type="text" placeholder="Food" [(ngModel)]="name"><br><br>
+        <input type="text" placeholder="Calories" [(ngModel)]="calories"><br><br>
+        <input type="text" placeholder="Add Image URL" [(ngModel)]="image"><br><br>
+        <button id="submit" (click)="newfood()">Add Food</button><br><br>
+    </div>
+    <br><br><br>
+    <input type="text" placeholder="Search" style="width: 24.5vw;" [(ngModel)]="searchstr"><br><br>
+    <div *ngFor="let food of foods | searcher:searchstr" class="search">
+        <p>{{food.name}}</p>
+        <p>{{food.calories}} Calories</p>
+        <img src={{food.image}}><br>
+        <input type="text" placeholder="Quantity" style="width: 10vh;" #quatity>
+        <button type="submit" (click)="append(food, quatity.value)" id="b1">Add</button>
+    </div>
+    <br>
+    <div *ngIf="isClicked;" id="table">
+        <h2 style="background-color: wheat; width: 25vw; text-align: center;">Today's Foods</h2>
+        <h3 style="background-color: wheat; width: 25vw; text-align: center;">Calory Count:{{total}}</h3>
+        <table>
+            <tr>
+                <th>Food</th>
+                <th>Calories</th>
+                <th>Quantity</th>
+                <th>Image</th>
+            </tr>
+            <tr *ngFor="let food of food1 | slice:1; let i = index"  >
+                <td>{{food.name}}</td>
+                <td>{{food.calories}} Calories</td>
+                <td>{{food.qty}}</td>
+                <td><img src="{{food.image}}"></td>
+            </tr>
+        </table>
+    </div>
+    <br><br>
+    <div class="list">
+        <div *ngFor="let food of foods" class="sublist">
+            <p>{{food.name}}</p>
+            <p>{{food.calories}} calories</p>
+            <img src={{food.image}}><br>
+            <input type="text" placeholder="Quantity" style="width: 10vh;" #quantity>
+            <button type="submit" (click)="append(food, quantity.value)">Add</button>
+        </div>
+    </div>
+    <br>
+</body>
+</html>
