@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Pipe({
-  name: 'searcher'
+  name: 'searchfood'
 })
 export class FilterPipe implements PipeTransform {
 
