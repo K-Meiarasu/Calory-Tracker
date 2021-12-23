@@ -56,7 +56,7 @@ export class AppFoodListComponent implements OnInit {
   name='';
   calories: any;
   image='';
-  searchstr:string='';
+  word:string='';
   total=0;
   qaty:number=1;
   constructor() { }
