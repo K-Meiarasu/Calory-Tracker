@@ -11,13 +11,13 @@
         <button id="submit" (click)="newfood()">Add Food</button><br><br>
     </div>
     <br><br><br>
-    <input type="text" placeholder="Search" style="width: 24.5vw;" [(ngModel)]="searchstr"><br><br>
-    <div *ngFor="let food of foods | searcher:searchstr" class="search">
+    <input type="text" placeholder="Search" style="width: 24.5vw;" [(ngModel)]="word"><br><br>
+    <div *ngFor="let food of foods | searchfood:word" class="search">
         <p>{{food.name}}</p>
         <p>{{food.calories}} Calories</p>
         <img src={{food.image}}><br>
-        <input type="text" placeholder="Quantity" style="width: 10vh;" #quatity>
-        <button type="submit" (click)="append(food, quatity.value)" id="b1">Add</button>
+        <input type="text" placeholder="Quantity" style="width: 10vh;" #quantity>
+        <button type="submit" (click)="append(food, quantity.value)">Add</button>
     </div>
     <br>
     <div *ngIf="isClicked;" id="table">
